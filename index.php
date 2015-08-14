@@ -37,24 +37,36 @@
 	<body>
 
 		<div class="reveal">
-			<div class="footer" style="display: none;"><img src="images/logo.png" alt="Shopgate" /></div>
+			<div class="header" style="display: none;">
+				<div class="container">
+					<div class="sectionname"></div>
+					<div class="logo"><img src="images/logo.png" alt="Shopgate" /></div>
+				</div>
+				<hr />
+			</div>
+			
+			<div class="footer" style="display: none;"><a href="http://www.shopgate.com" target="_blank">www.shopgate.com</a></div>
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h2>Onboarding Shopgate</h2>
-					<h4>As an External Developer</h4>
+					<img src="images/index.png" alt="title" class="clean" />
+				</section>
+				<section>
+					<div style="z-index: 100;">
+						<h2>Onboarding Shopgate</h2>
+						<h4>As an External Developer</h4>
+					</div>
+					<img src="images/introduction.png" alt="title" class="clean" />
 				</section>
 
-				<section>
-					<h3>Introduction</h3>
+				<section data-name="Introduction">
 					<ul>
 						<li>...</li>
 					</ul>
 				</section>
 
-				<section>
-					<h3>Contents</h3>
+				<section data-name="Contents">
 					<ul>
 						<li>Which data will Shopgate need?</li>
 						<li>Which data will Shopgate give?</li>
@@ -65,8 +77,7 @@
 					</ul>
 				</section>
 
-				<section>
-					<h3>Which data does Shopgate need?</h3>
+				<section data-name="Which data does Shopgate need?">
 					<ul>
 							<li class="fragment">category data</li>
 							<li class="fragment">product data</li>
@@ -78,8 +89,7 @@
 					<div class="fragment">all of this depending on the desired level of integration</div>
 				</section>
 
-				<section>
-					<h3>Which data does Shopgate give?</h3>
+				<section data-name="Which data does Shopgate give?">
 					<ul>
 							<li class="fragment">customer data upon registration</li>
 							<li class="fragment">updates on a registered customer's favourite list</li>
@@ -90,9 +100,8 @@
 					<div class="fragment">again, all of this depending on the desired level of integration</div>
 				</section>
 
-				<section>
-					<h3>Chapter 4</h3>
-					<h4>SimpleXMLElement::addChildWithCDATA()</h4>
+				<section data-name="How does Shopgate get the data?">
+					<h4>Cate</h4>
 					<ul>
 						<li>Overwritten in Shopgate_Model_XmlResultObject.</li>
 						<li>Used in every XML model.</li>
@@ -167,7 +176,6 @@
 		<script src="reveal.js/js/reveal.js"></script>
 
 		<script>
-
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
@@ -175,9 +183,9 @@
 				progress: true,
 				history: true,
 				center: true,
-
+				
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
-
+				
 				// Optional reveal.js plugins
 				dependencies: [
 					{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
@@ -188,21 +196,40 @@
 					{ src: 'reveal.js/plugin/notes/notes.js', async: true }
 				]
 			});
-
+			
 			Reveal.addEventListener('ready', function(event) {
-				document.querySelector('.reveal .footer').style.display = ((event.indexh == 0)
+				document.querySelector('.reveal .footer').style.display = ((event.indexh < 2)
+					? 'none'
+					: 'block'
+				);
+				
+				document.querySelector('.reveal .header').style.display = ((event.indexh < 2)
+					? 'none'
+					: 'block'
+				);
+				
+				if (typeof(event.currentSlide.dataset.name) !== 'undefined') {
+					document.querySelector('.reveal .header .container .sectionname').innerText = event.currentSlide.dataset.name;
+				}
+			});
+			
+			Reveal.addEventListener('slidechanged', function(event) {
+				document.querySelector('.reveal .footer').style.display = ((event.indexh < 2)
+					? 'none'
+					: 'block'
+				);
+				
+				document.querySelector('.reveal .header').style.display = ((event.indexh < 2)
 					? 'none'
 					: 'block'
 				);
 			});
 			
 			Reveal.addEventListener('slidechanged', function(event) {
-				document.querySelector('.reveal .footer').style.display = ((event.indexh == 0)
-					? 'none'
-					: 'block'
-				);
+				if (typeof(event.currentSlide.dataset.name) !== 'undefined') {
+					document.querySelector('.reveal .header .container .sectionname').innerText = event.currentSlide.dataset.name;
+				}
 			});
-
 		</script>
 
 	</body>
