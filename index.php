@@ -110,7 +110,7 @@
 
 				<section data-name="Shopgate XML file formats">
 					<ul>
-						<li class="fragment">preferredly on-the-fly generation (via Plugin API)</li>
+						<li class="fragment">preferredly on-the-fly generation (via Shopgate Plugin API)</li>
 						<li class="fragment">
 							formats specified by Shopgate for
 							<ul>
@@ -127,13 +127,13 @@
 					<ul>
 						<li>enables on-the-fly exports of product data</li>
 						<li>enables fetching real-time stock information</li>
-						<li>enables real-time cart validation</li>
+						<li>enables real-time cart validation (stock, coupons)</li>
 					</ul>
 				</section>
 
 				<section data-name="Shopgate Plugin API - 2">
 					<ul>
-						<li>enables pushing new orders or order updates into your ERP</li>
+						<li>enables pushing new order or order update notifications into your ERP</li>
 						<li>enables fetching tax, shipping and payment settings from your ERP on a regular basis</li>
 					</ul>
 				</section>
@@ -149,13 +149,25 @@
 
 				<section data-name="Shopgate Merchant API">
 					<ul>
-						<li class="fragment">refactoring will take quite some time</li>
-						<li class="fragment">it's unclear if it can be done without breaking compatibility</li>
+						<li>enables fetching new orders or order updates</li>
+						<li>enables pushing shipping or cancellation notifications to Shopgate</li>
+						<li>enables maintaining an up-to-date list of user agents that from mobile devices</li>
+						<li>enables real-time updates of categories or products</li>
 					</ul>
 				</section>
 
-				<section>
-					<p><img src="images/discuss.jpg" alt="Discuss" title="Discuss" /></p>
+				<section data-name="How will customers hit the mobile website or apps?">
+					<ul>
+						<li>let Google know there is an optimized version of every page</li>
+						<li>redirect customers from a page on your desktop shop to the corresponding page on the mobile shop</li>
+						<li>give users the option to view the desktop site if they choose to</li>
+					</ul>
+					<br /><br />
+					<div class="fragment">All of this functionality already included in the Shopgate Library for PHP.</div>
+				</section>
+
+				<section data-name="An example plugin implementation in PHP">
+					<p><img src="images/SHOW-ME-THE-CODE-.jpg" alt="SHOW ME THE CODE" title="SHOW ME THE CODE" /></p>
 				</section>
 			</div>
 		</div>
