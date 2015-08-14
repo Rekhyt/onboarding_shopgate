@@ -70,7 +70,7 @@
 					<ul>
 						<li>Which data will Shopgate need?</li>
 						<li>Which data will Shopgate give?</li>
-						<li>How does Shopgate get it?</li>
+						<li>How will Shopgate get it?</li>
 						<li>How will customers hit the mobile website?</li>
 						<li>An example plugin implementation in PHP.</li>
 						<li>Questions left?</li>
@@ -100,70 +100,58 @@
 					<div class="fragment">again, all of this depending on the desired level of integration</div>
 				</section>
 
-				<section data-name="How does Shopgate get the data?">
-					<h4>Cate</h4>
+				<section data-name="How will Shopgate get it?">
 					<ul>
-						<li>Overwritten in Shopgate_Model_XmlResultObject.</li>
-						<li>Used in every XML model.</li>
+						<li>Shopgate XML file formats</li>
+						<li>Shopgate Plugin API</li>
+						<li>Shopgate Merchant API</li>
 					</ul>
-					<br /><br />
-					<div class="fragment">
-						<h4>XMLWriter</h4>
-						<p>Works with startElement() and endElement() methods. This requires the whole process to work more recursively.</p>
-					</div>
-
-					<div class="fragment">
-						<h4>Conclusion</h4>
-						<p>Huge refactoring needed, might be impossible without breaking compatibility.</p>
-					</div>
 				</section>
 
-				<section>
-					<h3>Chapter 5</h3>
-					<h4>SimpleXMLElement::addAttribute()</h4>
-					<p>Overwritten and in every XML model.</p>
-
-					<div class="fragment">
-						<h4>XMLWriter</h4>
-						<p>Works with startAttribute() and endAttribute() methods.</p>
-					</div>
-
-					<div class="fragment">
-						<h4>Conclusion</h4>
-						<p>Huge refactoring needed. Might be impossible without breaking compatibility.</p>
-					</div>
-				</section>
-
-				<section>
-					<h3>Chapter 6</h3>
-					<h4>Shopgate_Model_AbstractExport::asXml()</h4>
+				<section data-name="Shopgate XML file formats">
 					<ul>
-						<li>Defined abstract, implemented by the model classes.</li>
-						<li>Responsible for putting child elements together correctly.</li>
-						<li>Does not actually return XML as a string.</li>
+						<li class="fragment">preferredly on-the-fly generation (via Plugin API)</li>
+						<li class="fragment">
+							formats specified by Shopgate for
+							<ul>
+								<li>category data</li>
+								<li>product data</li>
+								<li>product reviews</li>
+							</ul>
+						</li>
+						<li class="fragment">for daily or more frequent imports of the complete catalog</li>
 					</ul>
-					<br /><br />
-					<div class="fragment">
-						<h4>XMLWriter</h4>
-						<p>A third class using XMLWriter would be needed. Alternatively pass the XMLWriter around to every model, let them modify it to their needs.
-						</p>
-					</div>
-
-					<div class="fragment">
-						<h4>Conclusion</h4>
-						<p>Huge refactoring needed. Might be impossible without breaking compatibility.</p>
-					</div>
 				</section>
 
-				<section>
-					<h3>Chapter 7</h3>
-					<p class="fragment">We should not convert to DOMDocument.</p>
-					<p class="fragment">We should convert to XMLWriter, but:</p>
+				<section data-name="Shopgate Plugin API - 1">
+					<ul>
+						<li>enables on-the-fly exports of product data</li>
+						<li>enables fetching real-time stock information</li>
+						<li>enables real-time cart validation</li>
+					</ul>
+				</section>
+
+				<section data-name="Shopgate Plugin API - 2">
+					<ul>
+						<li>enables pushing new orders or order updates into your ERP</li>
+						<li>enables fetching tax, shipping and payment settings from your ERP on a regular basis</li>
+					</ul>
+				</section>
+
+				<section data-name="Shopgate Plugin API - 3">
+					<ul>
+						<li>enables pushing new customer registrations into your ERP</li>
+						<li>enables logging in customers that already exist in your ERP</li>
+						<li>enables customers to view all their orders in the shopping apps</li>
+						<li>enables customers to use synchronized favourite list</li>
+					</ul>
+				</section>
+
+				<section data-name="Shopgate Merchant API">
 					<ul>
 						<li class="fragment">refactoring will take quite some time</li>
 						<li class="fragment">it's unclear if it can be done without breaking compatibility</li>
 					</ul>
-					<div class="fragment"><p class="fragment highlight-red">This is something for Shopgate Library 3.x.</p></div>
 				</section>
 
 				<section>
@@ -197,39 +185,36 @@
 				]
 			});
 			
+			var Shopgate = {
+					toggleElement: function(query, hide) {
+						document.querySelector(query).style.display = (hide
+							? 'none'
+							: 'block'
+						);
+					},
+					
+					toggleHeaderAndFooter: function(hide) {
+						this.toggleElement('.reveal .header', hide);
+						this.toggleElement('.reveal .footer', hide);
+					},
+					
+					setTitle: function(title) {
+						if (typeof(title) !== 'undefined') {
+							document.querySelector('.reveal .header .container .sectionname').innerText = title;
+						}
+					}
+			}
+			
 			Reveal.addEventListener('ready', function(event) {
-				document.querySelector('.reveal .footer').style.display = ((event.indexh < 2)
-					? 'none'
-					: 'block'
-				);
-				
-				document.querySelector('.reveal .header').style.display = ((event.indexh < 2)
-					? 'none'
-					: 'block'
-				);
-				
-				if (typeof(event.currentSlide.dataset.name) !== 'undefined') {
-					document.querySelector('.reveal .header .container .sectionname').innerText = event.currentSlide.dataset.name;
-				}
+				Shopgate.toggleHeaderAndFooter(event.indexh < 2);
+				Shopgate.setTitle(event.currentSlide.dataset.name);
 			});
 			
 			Reveal.addEventListener('slidechanged', function(event) {
-				document.querySelector('.reveal .footer').style.display = ((event.indexh < 2)
-					? 'none'
-					: 'block'
-				);
-				
-				document.querySelector('.reveal .header').style.display = ((event.indexh < 2)
-					? 'none'
-					: 'block'
-				);
+				Shopgate.toggleHeaderAndFooter(event.indexh < 2);
+				Shopgate.setTitle(event.currentSlide.dataset.name);
 			});
 			
-			Reveal.addEventListener('slidechanged', function(event) {
-				if (typeof(event.currentSlide.dataset.name) !== 'undefined') {
-					document.querySelector('.reveal .header .container .sectionname').innerText = event.currentSlide.dataset.name;
-				}
-			});
 		</script>
 
 	</body>
