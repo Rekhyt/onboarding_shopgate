@@ -88,8 +88,49 @@
 					<br /><br />
 					<div class="fragment">all of this depending on the desired level of integration</div>
 				</section>
-
-				<section data-name="Which data does Shopgate give?">
+				
+				<section data-name="Plugin API Example: Exporting Products">
+					<div class="overview spa">
+						<div class="shopgate">
+							<div>Shopgate</div>
+						</div>
+						<div class="pluginapi">
+							<div>Plugin API</div>
+						</div>
+						<div class="cart">
+							<div>Shopping Cart</div>
+						</div>
+						<div class="fragment">
+							<div class="request">
+								<div>Request</div>
+								POST /shopgate/api.php HTTP/1.1<br />
+								<br />
+								X-Shopgate-Auth-User: 12345-1329146130<br />
+								X-Shopgate-Auth-Token: b83e778fb008e0b006a4094787aba2d9543d6d25<br />
+								<br />
+								action=get_items&amp;shop_number=11413<br />
+								&amp;offset=1000&amp;limit=5000&amp;trace_id=sma-5694<br />
+							</div>
+							<div class="arrow-sg-spa"><div class="tip"></div><div class="line"></div></div>
+						</div>
+						<div class="fragment arrow-spa-cart"><div class="tip-left"></div><div class="line"></div><div class="tip-right"></div></div>
+						<div class="fragment">
+							<div class="arrow-spa-sg"><div class="line"></div><div class="tip"></div></div>
+							<div class="response">
+								<div>Response</div>
+								HTTP/1.0 200 OK<br />
+								Content-Type: application/xml<br />
+								<br />
+								&lt;items&gt;<br />
+								&nbsp;&nbsp;&nbsp;&nbsp;&lt;item uid="123"&gt;&lt;name&gt;Awesome Product&lt;/name&gt;...&lt;/item&gt;<br />
+								...<br />
+								&lt;items&gt;
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<section data-name="What is the Shopgate Library?">
 					<ul>
 							<li class="fragment">customer data upon registration</li>
 							<li class="fragment">updates on a registered customer's favourite list</li>
