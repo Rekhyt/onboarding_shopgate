@@ -42,7 +42,7 @@
 					<div class="sectionname"></div>
 					<div class="logo"><img src="images/logo.png" alt="Shopgate" /></div>
 				</div>
-				<hr />
+				<div class="hr"></div>
 			</div>
 			
 			<div class="footer" style="display: none;"><a href="http://www.shopgate.com" target="_blank">www.shopgate.com</a></div>
@@ -174,6 +174,7 @@
 
 		<script src="reveal.js/lib/js/head.min.js"></script>
 		<script src="reveal.js/js/reveal.js"></script>
+		<script src="reveal.js/js/jquery-2.1.4.min.js"></script>
 
 		<script>
 			// Full list of configuration options available at:
@@ -199,10 +200,11 @@
 			
 			var Shopgate = {
 					toggleElement: function(query, hide) {
-						document.querySelector(query).style.display = (hide
-							? 'none'
-							: 'block'
-						);
+						if (hide) {
+							$(query).slideUp();
+						} else {
+							$(query).slideDown();
+						}
 					},
 					
 					toggleHeaderAndFooter: function(hide) {
@@ -228,6 +230,5 @@
 			});
 			
 		</script>
-
 	</body>
 </html>
