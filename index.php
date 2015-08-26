@@ -1,3 +1,11 @@
+<?php
+$examplePluginBare = <<<'EXAMPLE'
+<?php
+include('shopgate_library/shopgate.php');
+
+class MyShopgatePlugin extends MyShopgatePlugin {}
+EXAMPLE;
+?>
 <!doctype html>
 <html lang="en">
 
@@ -76,19 +84,30 @@
 						<li>How will customers hit the mobile website?</li>
 						<li>An example plugin implementation in PHP.</li>
 						<li>Questions left?</li>
-					</ul>
+					</ol>
 				</section>
 
-				<section data-name="Which data does Shopgate need?">
-					<ul>
-							<li class="fragment">category data</li>
-							<li class="fragment">product data</li>
-							<li class="fragment">product reviews</li>
-							<li class="fragment">a registered customer's data</li>
-							<li class="fragment">live stock information</li>
+				<section data-name="The Shopgate Infra-Structure">
+					<img src="http://developer.shopgate.com/img/requirements/overview.png" style="border: none;" />
+				</section>
+				
+				<section data-name="The Shopgate Plugin API Actions">
+					<ul style="margin-right: 3em;">
+						<li class="fragment">get_categories</li>
+						<li class="fragment">get_items</li>
+						<li class="fragment">get_reviews</li>
+						<li class="fragment">register_customer</li>
+						<li class="fragment">get_customer</li>
+						<li class="fragment">check_stock</li>
 					</ul>
-					<br /><br />
-					<div class="fragment">all of this depending on the desired level of integration</div>
+					<ul style="margin-left: 3em;">
+						<li class="fragment">check_cart</li>
+						<li class="fragment">redeem_coupons</li>
+						<li class="fragment">add_order</li>
+						<li class="fragment">update_order</li>
+						<li class="fragment">get_orders</li>
+						<li class="fragment">sync_favourite_list</li>
+					</ul>
 				</section>
 				
 				<section data-name="Plugin API Example: Exporting Products">
@@ -134,20 +153,24 @@
 				
 				<section data-name="What is the Shopgate Library?">
 					<ul>
-							<li class="fragment">customer data upon registration</li>
-							<li class="fragment">updates on a registered customer's favourite list</li>
-							<li class="fragment">incoming orders</li>
-							<li class="fragment">order updates</li>
+						<li class="fragment">an abstraction layer for
+							<ul>
+								<li class="fragment">the Shopgate Plugin API</li>
+								<li class="fragment">communication with the Shopgate Merchant API</li>
+								<li class="fragment">executing the Shopgate Mobile Redirect</li>
+							</ul>
+						</li>
+						<li class="fragment">an SDK and base for a Shopgate Plugin</li>
+						<li class="fragment">available for PHP >= 5.3</li>
 					</ul>
-					<br /><br />
-					<div class="fragment">again, all of this depending on the desired level of integration</div>
 				</section>
-
-				<section data-name="How will Shopgate get it?">
+				
+				<section data-name="Implementing the Plugin API using the Shopgate Library">
 					<ul>
-						<li>Shopgate XML file formats</li>
-						<li>Shopgate Plugin API</li>
-						<li>Shopgate Merchant API</li>
+						<li class="fragment">
+							Extend the ShopgatePlugin class:
+							<div class="fragment" style="margin-top: .5em;"><?php highlight_string($examplePluginBare)?></div>
+						</li>
 					</ul>
 				</section>
 
