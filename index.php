@@ -67,10 +67,12 @@
 				</section>
 
 				<section data-name="Contents">
-					<ul>
-						<li>Which data will Shopgate need?</li>
-						<li>Which data will Shopgate give?</li>
-						<li>How will Shopgate get it?</li>
+					<ol>
+						<li>The Shopgate Infra Structure</li>
+						<li>The Shopgate Plugin API Actions</li>
+						<li>Plugin API Example: Exporting Products</li>
+						<li>What is the Shopgate Library?</li>
+						<li>Implementing the Plugin API using the Shopgate Library</li>
 						<li>How will customers hit the mobile website?</li>
 						<li>An example plugin implementation in PHP.</li>
 						<li>Questions left?</li>
