@@ -312,6 +312,10 @@ EXAMPLE;
 						</code>
 					</div>
 				</section>
+				
+				<section data-name="&nbsp;">
+					Thank you for attending.<br /><br />Any questions left?
+				</section>
 			</div>
 		</div>
 
