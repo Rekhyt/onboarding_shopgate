@@ -53,6 +53,25 @@ class MyShopgatePlugin extends ShopgatePlugin {
 	}
 }
 EXAMPLE;
+
+$examplePluginGetShopgateMobileRedirect = <<<'EXAMPLE'
+<?php
+include('shopgate_library/shopgate.php'):
+
+$shopgateBuilder = new ShopgateBuilder();
+$shopgateRedirect = $builder->buildRedirect();
+EXAMPLE;
+
+$examplePluginBuildRedirectScript = <<<'EXAMPLE'
+<?php
+if (!empty($productID)) {
+	$shopgateMobileRedirect = $redirect->buildScriptItem($productID);
+} elseif (!empty($categoryID)) {
+	$shopgateMobileRedirect = $redirect->buildScriptCategory($categoryID);
+} else {
+	$shopgateMobileRedirect = $redirect->buildScriptDefault();
+}
+EXAMPLE;
 ?>
 <!doctype html>
 <html lang="en">
@@ -129,6 +148,8 @@ EXAMPLE;
 						<li>Plugin API Example: Exporting Products</li>
 						<li>What is the Shopgate Library?</li>
 						<li>Implementing the category export using the Shopgate Library</li>
+						<li>The Shopgate Mobile Redirect</li>
+						<li>Implementing the Mobile Redirect by Using the Shopgate Library</li>
 					</ol>
 				</section>
 
@@ -238,21 +259,64 @@ EXAMPLE;
 					</div>
 				</section>
 				
-					
+				<section data-name="The Shopgate Mobile Redirect">
+					<ul>
+						<li class="fragment">redirects smartphone users to the mobile website</li>
+						<li class="fragment">
+							displays a smartbanner for smartphone users<br />
+							<img src="images/mobile_header.png" style="border: none; border-radius: .2em;" />
+						</li>
+						<li class="fragment">
+							lets search engines know there is an optimized version for mobile devices by placing a link tag
+							<div>
+								<code style="margin-top: .5em; font-size: .475em;"><span style="color: #000080; font-weight: bold">&lt;link</span> <span style="color: #FF0000">rel=</span><span style="color: #0000FF">&quot;alternate&quot;</span> <span style="color: #FF0000">media=</span><span style="color: #0000FF">&quot;only screen and (max-width: 640px)&quot;</span> <span style="color: #FF0000">href=</span><span style="color: #0000FF">&quot;http://m.my-shop.com&quot;</span> <span style="color: #000080; font-weight: bold">/&gt;</span></code>
+							</div>
+						</li>
+					</ul>
 				</section>
 				
-				<section data-name="How will customers hit the mobile website or apps?">
-					<ul>
-						<li>let Google know there is an optimized version of every page</li>
-						<li>redirect customers from a page on your desktop shop to the corresponding page on the mobile shop</li>
-						<li>give users the option to view the desktop site if they choose to</li>
-					</ul>
-					<br /><br />
-					<div class="fragment">All of this functionality already included in the Shopgate Library for PHP.</div>
+				<section data-name="Implementing the Mobile Redirect by Using the Shopgate Library">
+					<div>
+						Start off at a point in your code where you can determine what kind of page has been requested, e.g.
+						<ul>
+							<li class="fragment">in a controller where view variables are set</li>
+							<li class="fragment">at the point where views are generated</li>
+							<li class="fragment">at the point where the HTML header is output</li>
+							<li class="fragment">in your templates</li>
+						</ul>
+					</div>
 				</section>
-
-				<section data-name="An example plugin implementation in PHP">
-					<p><img src="images/SHOW-ME-THE-CODE-.jpg" alt="SHOW ME THE CODE" title="SHOW ME THE CODE" /></p>
+				
+				<section data-name="Implementing the Mobile Redirect by Using the Shopgate Library">
+					<div>
+						Get an instance of the ShopgateMobileRedirect class:
+						<div style="margin-top: .5em;"><?php highlight_string($examplePluginGetShopgateMobileRedirect) ?></div>
+					</div>
+				</section>
+				
+				<section data-name="Implementing the Mobile Redirect by Using the Shopgate Library">
+					<div>
+						Determine the page type to call the correct method:
+						<div style="margin-top: .5em;"><?php highlight_string($examplePluginBuildRedirectScript) ?></div>
+					</div>
+				</section>
+				
+				<section data-name="Implementing the Mobile Redirect by Using the Shopgate Library">
+					<div>
+						Place the generated HTML code in yout HTML header:
+						<code style="margin-top: .5em; font-size: .475em;">
+							<span style="color: #000080; font-weight: bold">&lt;html&gt;</span><br />
+							&nbsp;&nbsp;<span style="color: #000080; font-weight: bold">&lt;head&gt;</span><br />
+							&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #000080; font-weight: bold">&lt;title&gt;</span>My Shop<span style="color: #000080; font-weight: bold">&lt;/title&gt;</span><br />
+							&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008080">&lt;?php</span> <span style="color: #000080; font-weight: bold">echo</span> $shopgateMobileRedirect; <span style="color: #008080">?&gt;</span><br />
+							&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008800; font-style: italic">&lt;!-- ... --&gt;</span><br />
+							&nbsp;&nbsp;<span style="color: #000080; font-weight: bold">&lt;/head&gt;</span><br />
+							&nbsp;&nbsp;<span style="color: #000080; font-weight: bold">&lt;body&gt;</span><br />
+							&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008800; font-style: italic">&lt;!-- ... --&gt;</span><br />
+							&nbsp;&nbsp;<span style="color: #000080; font-weight: bold">&lt;/body&gt;</span><br />
+							<span style="color: #000080; font-weight: bold">&lt;/html&gt;</span>
+						</code>
+					</div>
 				</section>
 			</div>
 		</div>
