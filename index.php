@@ -121,7 +121,7 @@ EXAMPLE;
 			</div>
 			
 			<div class="footer" style="display: none;"><a href="http://www.shopgate.com" target="_blank">www.shopgate.com</a></div>
-
+			
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
@@ -134,13 +134,7 @@ EXAMPLE;
 					</div>
 					<img src="images/introduction.png" alt="title" class="clean" />
 				</section>
-
-				<section data-name="Introduction">
-					<ul>
-						<li>...</li>
-					</ul>
-				</section>
-
+				
 				<section data-name="Contents">
 					<ol>
 						<li>The Shopgate Infra Structure</li>
@@ -152,7 +146,7 @@ EXAMPLE;
 						<li>Implementing the Mobile Redirect by Using the Shopgate Library</li>
 					</ol>
 				</section>
-
+				
 				<section data-name="The Shopgate Infra-Structure">
 					<img src="http://developer.shopgate.com/img/requirements/overview.png" style="border: none;" />
 				</section>
