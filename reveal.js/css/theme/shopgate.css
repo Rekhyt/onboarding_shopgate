@@ -212,6 +212,8 @@ body {
 	border: 1px dashed black;
 	background: #fafafa;
 	padding: .5em;
+	text-align: left;
+	width: 110%;
 }
 
 .reveal pre code {

@@ -1,9 +1,57 @@
 <?php
-$examplePluginBare = <<<'EXAMPLE'
+$examplePluginTop = <<<'EXAMPLE'
 <?php
 include('shopgate_library/shopgate.php');
 
-class MyShopgatePlugin extends MyShopgatePlugin {}
+class MyShopgatePlugin extends ShopgatePlugin {}
+EXAMPLE;
+
+$examplePluginMethods = <<<'EXAMPLE'
+<?php
+class MyShopgatePlugin extends ShopgatePlugin {
+	public function startup() {}
+	protected function createCategories(...) {}
+	protected function createItems(...) {}
+	protected function createReviews(...) {}
+	public function checkStock(...) {}
+	public function registerCustomer(...) {}
+	public function getCustomer(...) {}
+	public function checkCart(...) {}
+	public function redeemCoupons(...) {}
+	public function addOrder(...) {}
+	public function updateOrder(...) {}
+	public function getOrders(...) {}
+	public function syncFavouriteList(...) {}
+	public function cron(...) {}
+	public function getSettings() {}
+}
+EXAMPLE;
+
+$examplePluginEntryPoint = <<<'EXAMPLE'
+<?php
+$plugin = new MyShopgatePlugin();
+$plugin->handleRequest($_POST);
+EXAMPLE;
+
+$examplePluginGetCategories = <<<'EXAMPLE'
+<?php
+class MyShopgatePlugin extends ShopgatePlugin {
+	protected function createCategories($limit = null, $offset = null, array $uids = array()) {
+		// instantiate
+		$categoryItem = new Shopgate_Model_Catalog_Category();
+		
+		// set values
+		$categoryItem->setUid(10);
+		$categoryItem->setName('Example Category');
+		$categoryItem->setParentUid(4);
+		$categoryItem->setIsActive(true);
+		$categoryItem->setDeeplink('http://my-shop.com/category/id/10');
+		$categoryItem->setSortOrder(10);
+		
+		// add to output buffer
+		$this->addCategoryModel($categoryItem);
+	}
+}
 EXAMPLE;
 ?>
 <!doctype html>
@@ -80,10 +128,7 @@ EXAMPLE;
 						<li>The Shopgate Plugin API Actions</li>
 						<li>Plugin API Example: Exporting Products</li>
 						<li>What is the Shopgate Library?</li>
-						<li>Implementing the Plugin API using the Shopgate Library</li>
-						<li>How will customers hit the mobile website?</li>
-						<li>An example plugin implementation in PHP.</li>
-						<li>Questions left?</li>
+						<li>Implementing the category export using the Shopgate Library</li>
 					</ol>
 				</section>
 
@@ -165,63 +210,37 @@ EXAMPLE;
 					</ul>
 				</section>
 				
-				<section data-name="Implementing the Plugin API using the Shopgate Library">
-					<ul>
-						<li class="fragment">
-							Extend the ShopgatePlugin class:
-							<div class="fragment" style="margin-top: .5em;"><?php highlight_string($examplePluginBare)?></div>
-						</li>
-					</ul>
+				<section data-name="Implementing the category export using the Shopgate Library">
+					<div>
+						Extend the ShopgatePlugin class:
+						<div style="margin-top: .5em;"><?php highlight_string($examplePluginTop) ?></div>
+					</div>
 				</section>
-
-				<section data-name="Shopgate XML file formats">
-					<ul>
-						<li class="fragment">preferredly on-the-fly generation (via Shopgate Plugin API)</li>
-						<li class="fragment">
-							formats specified by Shopgate for
-							<ul>
-								<li>category data</li>
-								<li>product data</li>
-								<li>product reviews</li>
-							</ul>
-						</li>
-						<li class="fragment">for daily or more frequent imports of the complete catalog</li>
-					</ul>
+				
+				<section data-name="Implementing the category export using the Shopgate Library">
+					<div style="margin-top: 2em;">
+						Add the abstract callback methods from ShopgatePlugin:
+						<div style="margin-top: .5em;"><?php highlight_string($examplePluginMethods) ?></div>
+					</div>
 				</section>
-
-				<section data-name="Shopgate Plugin API - 1">
-					<ul>
-						<li>enables on-the-fly exports of product data</li>
-						<li>enables fetching real-time stock information</li>
-						<li>enables real-time cart validation (stock, coupons)</li>
-					</ul>
+				
+				<section data-name="Implementing the category export using the Shopgate Library">
+					<div style="margin-top: 2em;">
+						Provide an API entry point where you instantiate your plugin class and pass the request:
+						<div style="margin-top: .5em;"><?php highlight_string($examplePluginEntryPoint) ?></div>
+					</div>
 				</section>
-
-				<section data-name="Shopgate Plugin API - 2">
-					<ul>
-						<li>enables pushing new order or order update notifications into your ERP</li>
-						<li>enables fetching tax, shipping and payment settings from your ERP on a regular basis</li>
-					</ul>
+				
+				<section data-name="Implementing the category export using the Shopgate Library">
+					<div style="margin-top: 2em;">
+						Add the category exporting logic:
+						<div style="margin-top: .5em;"><?php highlight_string($examplePluginGetCategories) ?></div>
+					</div>
 				</section>
-
-				<section data-name="Shopgate Plugin API - 3">
-					<ul>
-						<li>enables pushing new customer registrations into your ERP</li>
-						<li>enables logging in customers that already exist in your ERP</li>
-						<li>enables customers to view all their orders in the shopping apps</li>
-						<li>enables customers to use synchronized favourite list</li>
-					</ul>
+				
+					
 				</section>
-
-				<section data-name="Shopgate Merchant API">
-					<ul>
-						<li>enables fetching new orders or order updates</li>
-						<li>enables pushing shipping or cancellation notifications to Shopgate</li>
-						<li>enables maintaining an up-to-date list of user agents that from mobile devices</li>
-						<li>enables real-time updates of categories or products</li>
-					</ul>
-				</section>
-
+				
 				<section data-name="How will customers hit the mobile website or apps?">
 					<ul>
 						<li>let Google know there is an optimized version of every page</li>
