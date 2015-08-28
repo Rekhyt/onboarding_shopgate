@@ -148,25 +148,56 @@ EXAMPLE;
 				</section>
 				
 				<section data-name="The Shopgate Infra-Structure">
-					<img src="http://developer.shopgate.com/img/requirements/overview.png" style="border: none;" />
+					<div class="overview infra-structure">
+						<div class="shopgate">
+							<div>Shopgate</div>
+						</div>
+						<div class="pluginapi">
+							<div>Plugin</div>
+						</div>
+						<div class="cart">
+							<div>Shopping Cart</div>
+						</div>
+						<div class="mobile-website">
+							<div>Mobile Website</div>
+						</div>
+						<div class="apps">
+							<div>Apps</div>
+						</div>
+						<div>
+							<div class="spa">Shopgate Plugin API</div>
+							<div class="arrow-sg-spa"><div class="tip"></div><div class="line"></div></div>
+						</div>
+						<div class="arrow-spa-cart"><div class="tip-left"></div><div class="line"></div><div class="tip-right"></div></div>
+						<div>
+							<div class="arrow-spa-sg"><div class="line"></div><div class="tip"></div></div>
+							<div class="sma">Shopgate Merchant API</div>
+						</div>
+						<div class="arrow-sg-mobile-website"><div class="tip-left"></div><div class="line"></div><div class="tip-right"></div></div>
+						<div class="arrow-sg-apps"><div class="tip-left"></div><div class="line"></div><div class="tip-right"></div></div>
+						<div>
+							<div class="mobile-redirect">Mobile Redirect</div>
+							<div class="arrow-spa-mobile-website"><div class="line"></div><div class="tip"></div></div>
+						</div>
+					</div>
 				</section>
 				
 				<section data-name="The Shopgate Plugin API Actions">
-					<ul style="margin-right: 3em;">
-						<li class="fragment">get_categories</li>
-						<li class="fragment">get_items</li>
-						<li class="fragment">get_reviews</li>
-						<li class="fragment">register_customer</li>
-						<li class="fragment">get_customer</li>
-						<li class="fragment">check_stock</li>
+					<ul class="fragment" style="margin-right: 3em;">
+						<li>get_categories</li>
+						<li>get_items</li>
+						<li>get_reviews</li>
+						<li>register_customer</li>
+						<li>get_customer</li>
+						<li>check_stock</li>
 					</ul>
-					<ul style="margin-left: 3em;">
-						<li class="fragment">check_cart</li>
-						<li class="fragment">redeem_coupons</li>
-						<li class="fragment">add_order</li>
-						<li class="fragment">update_order</li>
-						<li class="fragment">get_orders</li>
-						<li class="fragment">sync_favourite_list</li>
+					<ul class="fragment" style="margin-left: 3em;">
+						<li>check_cart</li>
+						<li>redeem_coupons</li>
+						<li>add_order</li>
+						<li>update_order</li>
+						<li>get_orders</li>
+						<li>sync_favourite_list</li>
 					</ul>
 				</section>
 				

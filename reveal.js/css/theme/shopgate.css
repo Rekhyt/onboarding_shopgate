@@ -413,16 +413,62 @@ body {
 	font-size: .7em;
 }
 
+.overview .mobile-website {
+	width: 4em;
+	height: 4em;
+	background: #017aba;
+	color: #ffffff;
+	font-size: 100%;
+	
+	-webkit-border-radius: 2em;
+	-moz-border-radius: 2em;
+	border-radius: 2em;
+	
+	-webkit-box-shadow: 1px 1px 30px 3px rgba(0,0,0,0.75);
+	-moz-box-shadow: 1px 1px 30px 3px rgba(0,0,0,0.75);
+	box-shadow: 1px 1px 30px 3px rgba(0,0,0,0.75);
+}
+
+.overview .mobile-website div {
+	padding-top: 1.6em;
+	font-size: .7em;
+}
+
+.overview .apps {
+	width: 4em;
+	height: 4em;
+	background: #017aba;
+	color: #ffffff;
+	font-size: 100%;
+	
+	-webkit-border-radius: 2em;
+	-moz-border-radius: 2em;
+	border-radius: 2em;
+	
+	-webkit-box-shadow: 1px 1px 30px 3px rgba(0,0,0,0.75);
+	-moz-box-shadow: 1px 1px 30px 3px rgba(0,0,0,0.75);
+	box-shadow: 1px 1px 30px 3px rgba(0,0,0,0.75);
+}
+
+.overview .apps div {
+	padding-top: 1.8em;
+	font-size: 0.8em;
+}
+
 /*********************************************
  * OVERVIEW SPA
  *********************************************/
 
-.overview.spa {
+.overview.spa, .overview.infra-structure {
 	position: relative;
 	top: 2em;
 }
 
-.overview.spa .arrow-sg-spa .tip {
+.overview.infra-structure {
+	top: -4em;
+}
+
+.overview.spa .arrow-sg-spa .tip, .overview.infra-structure .arrow-sg-spa .tip {
 	display: inline-block;
 	width: 0;
 	height: 0;
@@ -431,7 +477,7 @@ body {
 	border-color: transparent #333 transparent transparent;
 }
 
-.overview.spa .arrow-sg-spa .line {
+.overview.spa .arrow-sg-spa .line, .overview.infra-structure .arrow-sg-spa .line {
 	display: inline-block;
 	width: 11em;
 	height: .16em;
@@ -440,7 +486,25 @@ body {
 	border-color: #333;
 }
 
-.overview.spa .arrow-spa-sg .tip {
+.overview.infra-structure .arrow-spa-mobile-website .tip {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: .2em 0 .2em .5em;
+	border-color: transparent transparent transparent #333;
+}
+
+.overview.infra-structure .arrow-spa-mobile-website .line {
+	display: inline-block;
+	width: 10.5em;
+	height: .16em;
+	border-style: dotted;
+	border-width: .08em 0 0 0;
+	border-color: #333;
+}
+
+.overview.spa .arrow-spa-sg .tip, .overview.infra-structure .arrow-spa-sg .tip {
 	display: inline-block;
 	width: 0;
 	height: 0;
@@ -449,7 +513,7 @@ body {
 	border-color: transparent transparent transparent #333;
 }
 
-.overview.spa .arrow-spa-sg .line {
+.overview.spa .arrow-spa-sg .line, .overview.infra-structure .arrow-spa-sg .line {
 	display: inline-block;
 	width: 11em;
 	height: .16em;
@@ -458,7 +522,7 @@ body {
 	border-color: #333;
 }
 
-.overview.spa .arrow-spa-cart .tip-left {
+.overview.spa .arrow-spa-cart .tip-left, .overview.infra-structure .arrow-spa-cart .tip-left {
 	display: inline-block;
 	width: 0;
 	height: 0;
@@ -467,7 +531,7 @@ body {
 	border-color: transparent #333 transparent transparent;
 }
 
-.overview.spa .arrow-spa-cart .tip-right {
+.overview.spa .arrow-spa-cart .tip-right, .overview.infra-structure .arrow-spa-cart .tip-right {
 	display: inline-block;
 	width: 0;
 	height: 0;
@@ -476,7 +540,7 @@ body {
 	border-color: transparent transparent transparent #333;
 }
 
-.overview.spa .arrow-spa-cart .line {
+.overview.spa .arrow-spa-cart .line, .overview.infra-structure .arrow-spa-cart .line {
 	display: inline-block;
 	width: 2.1em;
 	height: .16em;
@@ -485,37 +549,97 @@ body {
 	border-color: #333;
 }
 
-.overview.spa .shopgate {
+.overview.infra-structure .arrow-sg-mobile-website .tip-left, .overview.infra-structure .arrow-sg-apps .tip-left {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: .2em 0.5em .2em 0;
+	border-color: transparent #333 transparent transparent;
+}
+
+.overview.infra-structure .arrow-sg-mobile-website .tip-right, .overview.infra-structure .arrow-sg-apps .tip-right {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: .2em 0 .2em 0.5em;
+	border-color: transparent transparent transparent #333;
+}
+
+.overview.infra-structure .arrow-sg-mobile-website .line, .overview.infra-structure .arrow-sg-apps .line {
+	display: inline-block;
+	width: 3.6em;
+	height: .16em;
+	border-style: solid;
+	border-width: .08em 0 0 0;
+	border-color: #333;
+}
+
+.overview.spa .shopgate, .overview.infra-structure .shopgate {
 	position: absolute;
 	right: 0;
 }
 
-.overview.spa .pluginapi {
+.overview.spa .pluginapi, .overview.infra-structure .pluginapi {
 	position: absolute;
 	left: 7em;
 }
 
-.overview.spa .cart {
+.overview.spa .cart, .overview.infra-structure .cart {
 	position: absolute;
 	left: 0;
 }
 
-.overview.spa .arrow-sg-spa {
+.overview.infra-structure .mobile-website {
+	position: absolute;
+	top: 8em;
+	right: 3em;
+}
+
+.overview.infra-structure .apps {
+	position: absolute;
+	top: 8em;
+	right: -3em;
+}
+
+.overview.spa .arrow-sg-spa, .overview.infra-structure .arrow-sg-spa {
 	position: absolute;
 	top: 1em;
 	left: 11em;
 }
 
-.overview.spa .arrow-spa-sg {
+.overview.spa .arrow-spa-sg, .overview.infra-structure .arrow-spa-sg {
 	position: absolute;
 	top: 1.5em;
 	left: 11.2em;
 }
 
-.overview.spa .arrow-spa-cart {
+.overview.spa .arrow-spa-cart, .overview.infra-structure .arrow-spa-cart {
 	position: absolute;
 	top: 1.25em;
 	left: 4em;
+}
+
+.overview.infra-structure .arrow-sg-mobile-website {
+	position: absolute;
+	top: 5.3em;
+	right: 1.4em;
+	transform: rotate(-67deg);
+}
+
+.overview.infra-structure .arrow-sg-apps {
+	position: absolute;
+	top: 5.3em;
+	right: -1.9em;
+	transform: rotate(67deg);
+}
+
+.overview.infra-structure .arrow-spa-mobile-website {
+	position: absolute;
+	top: 5.5em;
+	left: 9.7em;
+	transform: rotate(30deg);
 }
 
 .overview.spa .request {
@@ -540,4 +664,29 @@ body {
 	font-weight: 700;
 	font-size: 1.2em;
 	margin-bottom: .4em;
+}
+
+.overview.infra-structure .spa {
+	position: relative;
+	font-size: .7em;
+	text-align: left;
+	top: 1.2em;
+	left: 19.5em;
+}
+
+.overview.infra-structure .sma {
+	position: relative;
+	font-size: .7em;
+	text-align: left;
+	top: 2.1em;
+	left: 18.5em;
+}
+
+.overview.infra-structure .mobile-redirect {
+	position: relative;
+	font-size: .7em;
+	text-align: left;
+	top: 13.5em;
+	left: 14.5em;
+	transform: rotate(30deg);
 }
