@@ -27,6 +27,20 @@ class MyShopgatePlugin extends ShopgatePlugin {
 }
 EXAMPLE;
 
+$examplePluginStartup = <<<'EXAMPLE'
+<?php
+class MyShopgatePlugin extends ShopgatePlugin {
+	public function startup() {
+		$this->config = new ShopgateConfig();
+		$this->config->setShopNumber('12345');
+		$this->config->setCustomerNumber('12345');
+		$this->config->setApiKey('01234567890abcdef');
+	}
+	
+	// ...
+}
+EXAMPLE;
+
 $examplePluginEntryPoint = <<<'EXAMPLE'
 <?php
 $plugin = new MyShopgatePlugin();
@@ -267,6 +281,13 @@ EXAMPLE;
 					<div style="margin-top: 2em;">
 						Add the abstract callback methods from ShopgatePlugin:
 						<div style="margin-top: .5em;"><?php highlight_string($examplePluginMethods) ?></div>
+					</div>
+				</section>
+				
+				<section data-name="Implementing the category export using the Shopgate Library">
+					<div>
+						Use the startup() callback to initialize the configuration:
+						<div style="margin-top: .5em;"><?php highlight_string($examplePluginStartup) ?></div>
 					</div>
 				</section>
 				
