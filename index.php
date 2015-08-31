@@ -365,6 +365,23 @@ EXAMPLE;
 					</div>
 				</section>
 				
+				<section data-name="Currently Supported Redirect Methods">
+					<ul>
+						<li class="fragment"><b>buildScriptShop():</b><br />to the shop's welcome page</li>
+						<li class="fragment"><b>buildScriptItem():</b><br />to a product by "item number" - usually a product ID</li>
+						<li class="fragment"><b>buildScriptItemPublic():</b><br />to a product by "item number public" - usually an SKU</li>
+						<li class="fragment"><b>buildScriptCategory():</b><br />to a product by category number</li>
+					</ul>
+				</section>
+				
+				<section data-name="Currently Supported Redirect Methods">
+					<ul>
+						<li class="fragment"><b>buildScriptCms():</b><br />to a content page on a mobile website</li>
+						<li class="fragment"><b>buildScriptBrand():</b><br />to a list of products of a certain brand</li>
+						<li class="fragment"><b>buildScriptSearch():</b><br />by a search time</li>
+					</ul>
+				</section>
+				
 				<section data-name="&nbsp;">
 					Thank you for attending.<br /><br />Any questions left?
 				</section>
