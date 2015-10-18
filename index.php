@@ -157,7 +157,7 @@ EXAMPLE;
 						<li>What is the Shopgate Library?</li>
 						<li>Implementing the category export using the Shopgate Library</li>
 						<li>The Shopgate Mobile Redirect</li>
-						<li>Implementing the Mobile Redirect by Using the Shopgate Library</li>
+						<li>Implementing the Mobile Redirect by using the Shopgate Library</li>
 					</ol>
 				</section>
 				
@@ -378,7 +378,7 @@ EXAMPLE;
 					<ul>
 						<li class="fragment"><b>buildScriptCms():</b><br />to a content page on a mobile website</li>
 						<li class="fragment"><b>buildScriptBrand():</b><br />to a list of products of a certain brand</li>
-						<li class="fragment"><b>buildScriptSearch():</b><br />by a search time</li>
+						<li class="fragment"><b>buildScriptSearch():</b><br />by a search term</li>
 					</ul>
 				</section>
 				
