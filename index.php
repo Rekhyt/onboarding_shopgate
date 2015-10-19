@@ -82,6 +82,8 @@ if (!empty($productID)) {
 	$shopgateMobileRedirect = $redirect->buildScriptItem($productID);
 } elseif (!empty($categoryID)) {
 	$shopgateMobileRedirect = $redirect->buildScriptCategory($categoryID);
+} elseif ($currentTemplate == 'welcome') {
+	$shopgateMobileRedirect = $redirect->buildScriptShop();
 } else {
 	$shopgateMobileRedirect = $redirect->buildScriptDefault();
 }
