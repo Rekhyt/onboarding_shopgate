@@ -327,7 +327,7 @@ EXAMPLE;
 						<ul>
 							<li class="fragment">in a controller where view variables are set</li>
 							<li class="fragment">at the point where views are generated</li>
-							<li class="fragment">at the point where the HTML header is output</li>
+							<li class="fragment">at the point where the HTML header is put out</li>
 							<li class="fragment">in your templates</li>
 						</ul>
 					</div>
