@@ -283,7 +283,7 @@ EXAMPLE;
 				</section>
 				
 				<section data-name="Implementing the category export using the Shopgate Library">
-					<div style="margin-top: 2em;">
+					<div>
 						Add the abstract callback methods from ShopgatePlugin:
 						<div style="margin-top: .5em;"><?php highlight_string($examplePluginMethods) ?></div>
 					</div>
@@ -304,7 +304,7 @@ EXAMPLE;
 				</section>
 				
 				<section data-name="Implementing the category export using the Shopgate Library">
-					<div style="margin-top: 2em;">
+					<div>
 						Add the category exporting logic:
 						<div style="margin-top: .5em;"><?php highlight_string($examplePluginGetCategories) ?></div>
 					</div>

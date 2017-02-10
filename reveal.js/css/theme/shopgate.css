@@ -17,7 +17,7 @@ body {
 
 .reveal {
     font-family: "Open Sans", sans-serif;
-    font-size: 36px;
+    font-size: 2.26em;
     font-weight: normal;
     color: #666;
 }
@@ -26,6 +26,10 @@ body {
     color: #fff;
     background: rgba(0, 0, 0, 0.99);
     text-shadow: none;
+}
+
+.reveal .slides {
+    margin-top: 1em;
 }
 
 .reveal .slides > section, .reveal .slides > section > section {
@@ -85,7 +89,7 @@ body {
 }
 
 .reveal .header .hr {
-    height: 20px;
+    height: .55em;
     border: 0;
     border-bottom: 2px solid #32ac5c;
     padding: 0;
@@ -239,7 +243,7 @@ body {
     background: #fafafa;
     padding: .5em;
     text-align: left;
-    width: 110%;
+    width: 100%;
 }
 
 .reveal pre code {
@@ -408,7 +412,7 @@ body {
     height: 4em;
     background: #00aa00;
     color: #ffffff;
-    font-size: 100%;
+    font-size: 1em;
 
     -webkit-border-radius: 2em;
     -moz-border-radius: 2em;
@@ -429,7 +433,7 @@ body {
     height: 4em;
     background: #aa0000;
     color: #ffffff;
-    font-size: 100%;
+    font-size: 1em;
 
     -webkit-border-radius: 2em;
     -moz-border-radius: 2em;
@@ -450,7 +454,7 @@ body {
     height: 4em;
     background: #017aba;
     color: #ffffff;
-    font-size: 100%;
+    font-size: 1em;
 
     -webkit-border-radius: 2em;
     -moz-border-radius: 2em;
@@ -471,7 +475,7 @@ body {
     height: 4em;
     background: #017aba;
     color: #ffffff;
-    font-size: 100%;
+    font-size: 1em;
 
     -webkit-border-radius: 2em;
     -moz-border-radius: 2em;
@@ -492,7 +496,7 @@ body {
     height: 4em;
     background: #017aba;
     color: #ffffff;
-    font-size: 100%;
+    font-size: 1em;
 
     -webkit-border-radius: 2em;
     -moz-border-radius: 2em;
